@@ -1,0 +1,39 @@
+name: onPush
+on: push
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World"
+  NotionInProgress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: yarn
+      - name: Notion
+        env:
+          NOTION_KEY: secret_5ty6m51b6fSIKeVX9E4bS6Gt7gl8my3wsgUJqdw2jv7
+          TEAM_TASK_NOTION_DB_ID: 677b089d81324858a1e1394f4e63f2ef
+        run: yarn action:onPush
+  checkGitflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Check current branch is a child of main and dev branches
+        run: |
+          if git merge-base --is-ancestor origin/main HEAD; then
+          echo I contain commit origin/main
+          else
+          echo I do not contain commit origin/main
+          exit 1
+          fi
+          
+          exit 0
