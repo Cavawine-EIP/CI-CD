@@ -9,8 +9,6 @@ jobs:
         with:
           repository: Cavawine-EIP/CI-CD
           path: ./
-      - name: find
-        run: find
       - name: Install node
         uses: actions/setup-node@v3
         with:

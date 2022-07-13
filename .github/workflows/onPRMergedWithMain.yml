@@ -1,0 +1,24 @@
+name: onPRMergedWithMain
+on:
+  workflow_call:
+
+jobs:
+  NotionInProgress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: Cavawine-EIP/CI-CD
+          path: ./
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: yarn
+      - name: Notion
+        env:
+          NOTION_KEY: secret_5ty6m51b6fSIKeVX9E4bS6Gt7gl8my3wsgUJqdw2jv7
+          TEAM_TASK_NOTION_DB_ID: 677b089d81324858a1e1394f4e63f2ef
+        if: github.event.pull_request.merged == true
+        run: yarn action:onPRMergedWithMain
