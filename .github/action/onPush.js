@@ -1,6 +1,7 @@
 const { Client } = require("@notionhq/client")
 require('dotenv').config()
 
+console.log('JSUIS LA BATARDDD')
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
 const databaseId = process.env.TEAM_TASK_NOTION_DB_ID
