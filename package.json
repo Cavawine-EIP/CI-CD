@@ -1,0 +1,27 @@
+{
+  "name": "cavawine_cicd",
+  "version": "0.0.1",
+  "description": "CI/CD pour Cavawine",
+  "main": "main.ts",
+  "scripts": {
+    "action:onPush": "node .github/action/onPush.js",
+    "action:onPR": "node .github/action/onPR.js",
+    "action:onPRMergedWithMain": "node .github/action/onPRMergedWithMain.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cavawine-EIP/CI-CD.git"
+  },
+  "author": "Cavawine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cavawine-EIP/CI-CD/issues"
+  },
+  "homepage": "https://github.com/Cavawine-EIP/CI-CD#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@notionhq/client": "^1.0.4"
+  }
+}
