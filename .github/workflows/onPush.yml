@@ -5,6 +5,9 @@ jobs:
   NotionInProgress:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: find
+        run: find
       - name: Install node
         uses: actions/setup-node@v3
         with:
