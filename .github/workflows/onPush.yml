@@ -2,14 +2,9 @@ name: onPush
 on:
   workflow_call:
 jobs:
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello World"
   NotionInProgress:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Install node
         uses: actions/setup-node@v3
         with:
