@@ -18,6 +18,6 @@ jobs:
         run: yarn
       - name: Notion
         env:
-          NOTION_KEY: secret_5ty6m51b6fSIKeVX9E4bS6Gt7gl8my3wsgUJqdw2jv7
-          TEAM_TASK_NOTION_DB_ID: 677b089d81324858a1e1394f4e63f2ef
+          NOTION_KEY: ${{ secrets.NOTION_KEY }}
+          TEAM_TASK_NOTION_DB_ID: ${{ secrets.TEAM_TASK_NOTION_DB_ID }}
         run: yarn action:onPR
