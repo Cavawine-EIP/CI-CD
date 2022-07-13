@@ -5,6 +5,10 @@ jobs:
   NotionInProgress:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: Cavawine-EIP/CI-CD
+          path: CI-CD
       - name: find
         run: find
       - name: Install node
